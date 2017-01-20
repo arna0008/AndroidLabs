@@ -2,4 +2,12 @@
     <string name="hello_message">(strings.xml) -> Hello World!</string>
     <string name="app_name">AndroidLabs</string>
     <string name="ButtonText">(strings.xml) -> I\’m a button</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="login_title">Login</string>
+    <string name="password_title">Password</string>
+    <string name="switch_title">Enable Something</string>
+
+    <string name="grid_radio_button">I\'m a radio button</string>
+    <string name="grid_checkbox">I\'m a checkbox</string>
 </resources>
