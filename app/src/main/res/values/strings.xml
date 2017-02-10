@@ -1,7 +1,7 @@
 <resources>
     <string name="hello_message">(strings.xml) -> Hello World!</string>
     <string name="app_name">AndroidLabs</string>
-    <string name="ButtonText">(strings.xml) -> I\’m a button</string>
+    <string name="GoToLoginActivityButtonText">I\'m a button</string>
     <string name="title_activity_login">LoginActivity</string>
 
     <string name="login_title">Login</string>
@@ -10,4 +10,13 @@
 
     <string name="grid_radio_button">I\'m a radio button</string>
     <string name="grid_checkbox">I\'m a checkbox</string>
+
+    <string name="dialog_message">To Quit, or not to Quit?</string>
+    <string name="dialog_title">Would you like to Quit?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="quit_message">ListItemsActivity passed: My information to share</string>
+
+
+
 </resources>

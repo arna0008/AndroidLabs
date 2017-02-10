@@ -17,13 +17,13 @@
         android:id="@+id/textBox"/>
 
     <Button
-        android:text="@string/ButtonText"
+        android:text="@string/GoToLoginActivityButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textBox"
         android:layout_alignParentStart="true"
         android:layout_marginTop="19dp"
-        android:id="@+id/button1"
+        android:id="@+id/goToLoginActivityButtonId"
 
 
         />
@@ -50,4 +50,5 @@
         android:layout_alignStart="@+id/radioButton"
         android:layout_marginStart="50dp"
         android:singleLine="false" />
+
 </RelativeLayout>
