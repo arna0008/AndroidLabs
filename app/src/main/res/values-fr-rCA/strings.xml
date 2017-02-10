@@ -3,7 +3,6 @@
     <string name="hello_message">(strings.xml) -> Bonjour tout le monde!</string>
     <string name="app_name">AndroidLabs</string>
     <string name="ButtonText">(strings.xml) -> Je suis une button</string>
-
     <string name="title_activity_login">LoginActivity</string>
 
     <string name="login_title">Ton Login</string>
@@ -12,4 +11,10 @@
 
     <string name="grid_radio_button">Je suis un radio button</string>
     <string name="grid_checkbox">Je suit un checkbox</string>
+
+    <string name="dialog_message">Quitter ou ne pas quitter?</string>
+    <string name="dialog_title">Voulez-vous Quitter?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="quit_message">ListItemsActivity passed: Mes informations à partager</string>
 </resources>
