@@ -17,4 +17,12 @@
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
     <string name="quit_message">ListItemsActivity passed: Mes informations à partager</string>
+
+    <!-- In StartActivity -->
+    <string name="start_chat_button">Démarrer la Discussion</string>
+
+
+    <!-- ChatWindow Layout -->
+    <string name="send_button">Commence</string>
+
 </resources>

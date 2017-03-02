@@ -20,6 +20,7 @@ public class StartActivity extends AppCompatActivity {
     Button goToListActivityButton;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +40,36 @@ public class StartActivity extends AppCompatActivity {
 
                 //Intent to go from StartActivity(this) to ListItemsActivity
                 Intent intentToListItems = new Intent(StartActivity.this, ListItemsActivity.class);
+
+                //receive information back from the ListItemsActivity class
                 startActivityForResult(intentToListItems, 5);
 
 
             }
         });
 
+        //************************** START CHAT *********************************//
 
-    }
+        //Start chat button
+        Button startChatButton = (Button) findViewById(R.id.start_chat_button);
+
+        //onClick handling for startChatButton
+        startChatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+
+                Intent goToChatIntent = new Intent(StartActivity.this, ChatWindow.class);
+
+                if(goToChatIntent.resolveActivity(getPackageManager()) != null){
+                    startActivity(goToChatIntent);
+                }
+            }
+        });
+
+
+
+    }//end of onCreate
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

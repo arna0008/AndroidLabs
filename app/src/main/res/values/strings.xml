@@ -17,6 +17,13 @@
     <string name="cancel">Cancel</string>
     <string name="quit_message">ListItemsActivity passed: My information to share</string>
 
+    <!-- In StartActivity -->
+    <string name="start_chat_button">Start Chat</string>
+
+    <!-- ChatWindow Layout -->
+    <string name="send_button">Send</string>
+
+    <!-- -->
 
 
 </resources>

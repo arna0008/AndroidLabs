@@ -46,13 +46,17 @@ public class LoginActivity extends AppCompatActivity {
         emailField = (EditText) findViewById(R.id.inputEmail);
         prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this); //gets default shared prefs for Login Activity class
 
-
+        //call loginButtonClick method which passes the EditTest object as a parameter
         loginButtonClick(emailField);
 
     }//end onCreate
 
 
-
+    /* Method to Save the last email enter into email login with the shared prefs editor
+       On clicking the login button, will save email, then go to the new activity with the created intent
+       The intent object takes in 2 parameters... (current Activity, next Activity).
+       passing the intent into startActivity will tell the app where to go after button click
+      */
     protected void loginButtonClick(View view)
     {
         Log.i("Message", "Login Button Clicked");
