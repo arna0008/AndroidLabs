@@ -1,8 +1,13 @@
 package com.example.android.androidlabs;
 
+import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +26,13 @@ public class ChatWindow extends AppCompatActivity {
     Button sendButton;
     ArrayList<String> list;
     ChatAdapter messageWindowAdapter;
+
+    //for temp object
+    ChatDatabaseHelper temp;
+    SQLiteDatabase db;
+
+    //for logging purposed
+    static final String ACTIVITY_NAME = "ChatWindow";
 
 
     @Override
@@ -43,14 +55,56 @@ public class ChatWindow extends AppCompatActivity {
             public void onClick(View view) {
 
                 //get text in messageBox and add it to the arrayList
-                list.add(messageBox.getText().toString());
+                String typedText = messageBox.getText().toString();
+                list.add(typedText);
                 messageWindowAdapter.notifyDataSetChanged();
                 messageBox.setText("");
+
+                //using a ContentValues object to put the new message into the database **note, ID is auto-inc so no need to specify
+                ContentValues values = new ContentValues();
+                values.put(temp.KEY_MESSAGE, typedText);
+                db.insert(temp.TABLE_NAME, null, values);
 
             }
         });
 
+
+
+
+        //temp ChatDatabaseHelperObject, which gets a write-able database and stores that as an instance variable
+        temp = new ChatDatabaseHelper(this);
+        db = temp.getWritableDatabase();
+
+        //after opening the database, execute a query for any existing chat messages and add them into ArrayList of messages from Lab 4
+        //Cursor Object
+        Cursor cursor = db.query(false, temp.TABLE_NAME, new String[]{temp.KEY_MESSAGE}, null, null, null, null, null, null);
+        cursor.moveToFirst();
+        int columnIndex = cursor.getColumnIndex(temp.KEY_MESSAGE);
+
+        while(!cursor.isAfterLast()){
+            String text = cursor.getString(columnIndex);
+            list.add(text);
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE: " + cursor.getString( cursor.getColumnIndex( ChatDatabaseHelper.KEY_MESSAGE) ) );
+            Log.i(ACTIVITY_NAME, "Cursor's column count = " + cursor.getColumnCount() );
+            cursor.moveToNext();
+        }
+
+        //for loop to print out column name
+        for(int i = 0; i < cursor.getColumnCount(); i++){
+            Log.i(ACTIVITY_NAME, "COLUMN NAME = " + cursor.getColumnName(i));
+        }
+
+        cursor.close(); //close cursor after getting column name
+
+
     }//end onCreate()
+
+
+    //close db from onCreate(), and call onDestroy from superclass
+    protected void onDestroy(){
+        super.onDestroy();
+        db.close();
+    }
 
         /*Inner class for ChatAdapter */
         class ChatAdapter extends ArrayAdapter<String>{
