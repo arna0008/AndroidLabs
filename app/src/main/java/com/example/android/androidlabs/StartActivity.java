@@ -8,7 +8,6 @@ import android.util.Log;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
@@ -18,6 +17,9 @@ public class StartActivity extends AppCompatActivity {
 
     //Instantiate Button to get to ListItemActivity
     Button goToListActivityButton;
+
+
+    Button weatherActivityButton;
 
 
 
@@ -67,6 +69,17 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+
+
+        weatherActivityButton = (Button) findViewById(R.id.weather_forecast_button);
+
+        weatherActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToWeather = new Intent(getApplicationContext(), WeatherForecast.class);
+                startActivity(goToWeather);
+            }
+        });
 
 
     }//end of onCreate

@@ -62,8 +62,8 @@ public class ChatWindow extends AppCompatActivity {
 
                 //using a ContentValues object to put the new message into the database **note, ID is auto-inc so no need to specify
                 ContentValues values = new ContentValues();
-                values.put(temp.KEY_MESSAGE, typedText);
-                db.insert(temp.TABLE_NAME, null, values);
+                values.put(ChatDatabaseHelper.KEY_MESSAGE, typedText);
+                db.insert(ChatDatabaseHelper.TABLE_NAME, null, values);
 
             }
         });
@@ -77,9 +77,9 @@ public class ChatWindow extends AppCompatActivity {
 
         //after opening the database, execute a query for any existing chat messages and add them into ArrayList of messages from Lab 4
         //Cursor Object
-        Cursor cursor = db.query(false, temp.TABLE_NAME, new String[]{temp.KEY_MESSAGE}, null, null, null, null, null, null);
+        Cursor cursor = db.query(false, ChatDatabaseHelper.TABLE_NAME, new String[]{ChatDatabaseHelper.KEY_MESSAGE}, null, null, null, null, null, null);
         cursor.moveToFirst();
-        int columnIndex = cursor.getColumnIndex(temp.KEY_MESSAGE);
+        int columnIndex = cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE);
 
         while(!cursor.isAfterLast()){
             String text = cursor.getString(columnIndex);

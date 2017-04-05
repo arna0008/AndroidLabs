@@ -22,6 +22,7 @@
 
     <!-- ChatWindow Layout -->
     <string name="send_button">Send</string>
+    <string name="weather_forecast_button">Weather Forecast</string>
 
     <!-- -->
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_weather"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.androidlabs.WeatherForecast">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="200dp"
+        android:minWidth="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/forecast_image"/>
+
+    <TextView
+        android:text="Current Temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/current_temp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/forecast_image"
+    />
+
+    <TextView
+        android:text="Min Temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/min_temp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/current_temp"
+        />
+
+    <TextView
+        android:text="Max Temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/max_temp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/min_temp"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:maxWidth="40dp"
+        android:maxHeight="40dp"
+        android:layout_below="@+id/max_temp"
+        android:layout_alignStart="@+id/max_temp"
+        android:layout_marginTop="26dp"
+        android:id="@+id/progress_bar"
+        android:visibility="visible"/>
+
+
+</RelativeLayout>
